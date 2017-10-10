@@ -1,103 +1,121 @@
 // Iteration 1 - Creating the cards
 
-var gameCharacters = [
-  { firstName: 'Jacob', lastName: 'Green', color: 'green', occupation: 'anglican priest', age: 30, description: 'In North America, he is Mr. Green, who has taken many money-oriented roles from mobster to businessman.' },
-  { firstName: 'Doctor', lastName: 'Orchid', color: 'white', occupation: 'biologist', age: 40, description: "She is the adopted daugther of Mr. Boddy, a biologist with a PhD in plant toxicology. She was privately educated in Switzerland until her expulsion after an incident involving daffodils resulted in a near-fatal poisoning" },
-  { firstName: 'Victor', lastName: 'Plum', color: 'purple', occupation: 'video game developer', age: 50, description: 'He is a billionaire video game designer who is embracing his new popularity.' },
-  { firstName: 'Kasandra', lastName: 'Scarlet', color: 'red', occupation: 'movie star', age: 55, description: 'She is an A-list movie star whose past haunts her.' },
-  { firstName: 'Eleanor', lastName: 'Peacock', color: 'blue', occupation: 'ritch woman', age: 60, description: 'She is from a wealthy family and uses her status and money to earn popularity.' },
-  { firstName: 'Jack', lastName: 'Mustard', color: 'yellow', occupation: 'former fotball player', age: 51, description: 'He is a former football player who tries to get by on his former glory.' },
+const characters = [
+  {
+    character: "Mr Green",
+    firstName: "Jacob",
+    lastName: "Green",
+    color: "green",
+    description: "He has a lot of connections",
+    age: 45,
+    image:
+      "https://pbs.twimg.com/profile_images/506787499331428352/65jTv2uC.jpeg",
+    occupation: "Entrepreneur",
+  },
+  {
+    character: "Dr Orchid",
+    firstName: "Doctor",
+    lastName: "Orchid",
+    color: "white",
+    description: "PhD in plant toxicology. Adopted daughter of Mr. Boddy",
+    age: 26,
+    image: "http://www.radiotimes.com/uploads/images/Original/111967.jpg",
+    occupation: "Scientist",
+  },
+  {
+    character: "Prof Plum",
+    firstName: "Victor",
+    lastName: "Plum",
+    color: "purple",
+    description: "Billionare video game designer",
+    age: 22,
+    image: "https://metrouk2.files.wordpress.com/2016/07/professor-plum.jpg",
+    occupation: "Designer",
+  },
+  {
+    character: "Miss Scarlet",
+    firstName: "Kasandra",
+    lastName: "Scarlet",
+    color: "red",
+    description: "She is an A-list movie star with a dark past,",
+    age: 31,
+    image: "https://metrouk2.files.wordpress.com/2016/07/miss-scarlett.jpg",
+    occupation: "Actor",
+  },
+  {
+    character: "Mrs Peacock",
+    firstName: "Eleanor",
+    lastName: "Peacock",
+    color: "blue",
+    description:
+      "She is from a wealthy family and uses her status and money to earn popularity",
+    age: 36,
+    image: "https://metrouk2.files.wordpress.com/2016/07/mrs-peacock.jpg",
+    occupation: "Socialité",
+  },
+  {
+    character: "Mr Mustard",
+    firstName: "Jack",
+    lastName: "Mustard",
+    color: "yellow",
+    description:
+      "He is a former football player who tries to get by on his former glory",
+    age: 62,
+    image: "https://metrouk2.files.wordpress.com/2016/07/colonel-mustard.jpg",
+    occupation: "Retired Football player",
+  },
 ];
 
-//console.log(gameCharacters[0].firstName + ' ' + gameCharacters[0].lastName);
-
-var availableWeapons = [
-    { name: "Knife" },
-    { name: "Candlestick" },
-    { name: "Dumbbell" },
-    { name: "Axe" },
-    { name: "Bat" },
-    { name: "Trophy" },
-    { name: "Pistol" }
+const weapons = [
+  "Rope",
+  "Knife",
+  "Candlestick",
+  "Dumbbell",
+  "Poison",
+  "Axe",
+  "Bat",
+  "Trophy",
+  "Pistol",
 ];
 
-//console.log(availableWeapons.length);
-// console.log(availableWeapons[0].name);
-
-var houseRooms = [
-  "Dining room",
+const rooms = [
+  "Dinning Room",
   "Conservatory",
   "Kitchen",
   "Study",
   "Library",
-  "Billiard room",
+  "Billiard Room",
   "Lounge",
   "Ballroom",
   "Hall",
-  "A spa",
-  "Living room",
+  "Spa",
+  "Living Room",
   "Observatory",
   "Theater",
-  "Guest house",
-  "A patio"
+  "Guest House",
+  "Patio",
 ];
-
-// console.log(houseRooms);
-
-// console.log(houseRooms[0]);
 
 // Iteration 2 - Creating and revealing the mystery
 
-// Create a method to randomly select one element from a card stack.
-/*gameCharacters.randomCharacter  = function () {
-    var random = Math.floor(Math.random() * gameCharacters.length);
-    return gameCharacters[random].firstName + ' ' + gameCharacters[random].lastName
-}*/
-
-function pickUpRadomly(array){
-    var random = Math.floor(Math.random() * array.length);
-    return array[random]
+function random_selector(array) {
+  return Math.floor(Math.random() * array.length);
 }
 
-/*availableWeapons.randomWeapon = function () {
-    var random = Math.floor(Math.random() * availableWeapons.length);
-    return availableWeapons[random].name;
+function pick_mistery(characterArray, weaponArray, roomArray) {
+  return [
+    characterArray[random_selector(characterArray)],
+    weaponArray[random_selector(weaponArray)],
+    roomArray[random_selector(roomArray)],
+  ];
 }
 
-houseRooms.randomRoom = function () {
-    var random = Math.floor(Math.random() * houseRooms.length);
-    return houseRooms[random];
-}
-*/
-/*console.log("hello", gameCharacters.randomCharacter());*/
-
-/*console.log(availableWeapons.randomWeapon());
-console.log(houseRooms.randomRoom());*/
-
-// Create another function that calls the method above once for each card stack.
-
-/*var randCharWeapRoom = function() {
-    console.log(gameCharacters.randomCharacter() + ' ' + availableWeapons.randomWeapon() + ' ' + houseRooms.randomRoom());
-}
-*/
-/*randCharWeapRoom();*/
-
-var char = pickUpRadomly(gameCharacters)
-var weapon = pickUpRadomly(availableWeapons) 
-var room = pickUpRadomly(houseRooms);
-/*console.log("Print out Random Characters: ", char.firstName + ' ' + char.lastName);
-console.log("Print out Random Weapon: ", weapon.name);
-console.log("Print out Random Room:", room);*/
-
-// Place the “Case File Confidential” in a virtual envelope. 
-
-var virtualEnvelope = {
-    firstname: char.firstName,
-    lastName: char.lastName,
-    weapon: weapon.name,
-    room: room
+function reveal_mistery(mistery) {
+  console.log(
+    `Character: ${mistery[0]
+      .character}, Weapon: ${mistery[1]}, Room: ${mistery[2]}`,
+  );
 }
 
-// Create a method to reveal the mystery.
-
-console.log(virtualEnvelope);
+const mistery_envelope = pick_mistery(characters, weapons, rooms);
+reveal_mistery(mistery_envelope);

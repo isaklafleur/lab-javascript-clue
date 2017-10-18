@@ -1,8 +1,7 @@
 // Iteration 1 - Creating the cards
-
 const characters = [
   {
-    character: "Mr Green",
+    nickname: "Mr Green",
     firstName: "Jacob",
     lastName: "Green",
     color: "green",
@@ -13,7 +12,7 @@ const characters = [
     occupation: "Entrepreneur",
   },
   {
-    character: "Dr Orchid",
+    nickname: "Dr Orchid",
     firstName: "Doctor",
     lastName: "Orchid",
     color: "white",
@@ -23,7 +22,7 @@ const characters = [
     occupation: "Scientist",
   },
   {
-    character: "Prof Plum",
+    nickname: "Prof Plum",
     firstName: "Victor",
     lastName: "Plum",
     color: "purple",
@@ -33,7 +32,7 @@ const characters = [
     occupation: "Designer",
   },
   {
-    character: "Miss Scarlet",
+    nickname: "Miss Scarlet",
     firstName: "Kasandra",
     lastName: "Scarlet",
     color: "red",
@@ -43,7 +42,7 @@ const characters = [
     occupation: "Actor",
   },
   {
-    character: "Mrs Peacock",
+    nickname: "Mrs Peacock",
     firstName: "Eleanor",
     lastName: "Peacock",
     color: "blue",
@@ -54,7 +53,7 @@ const characters = [
     occupation: "Socialité",
   },
   {
-    character: "Mr Mustard",
+    nickname: "Mr Mustard",
     firstName: "Jack",
     lastName: "Mustard",
     color: "yellow",
@@ -97,25 +96,23 @@ const rooms = [
 ];
 
 // Iteration 2 - Creating and revealing the mystery
-
-function random_selector(array) {
+function randomSelector(array) {
   return Math.floor(Math.random() * array.length);
 }
 
-function pick_mistery(characterArray, weaponArray, roomArray) {
-  return [
-    characterArray[random_selector(characterArray)],
-    weaponArray[random_selector(weaponArray)],
-    roomArray[random_selector(roomArray)],
-  ];
+function pickMistery(characterArray, weaponArray, roomArray) {
+  return {
+    character: characterArray[randomSelector(characterArray)].nickname,
+    weapon: weaponArray[randomSelector(weaponArray)],
+    room: roomArray[randomSelector(roomArray)],
+  };
 }
 
-function reveal_mistery(mistery) {
+function revealMistery(mistery) {
   console.log(
-    `Character: ${mistery[0]
-      .character}, Weapon: ${mistery[1]}, Room: ${mistery[2]}`,
+    `Character: ${mistery.character}, Weapon: ${mistery.weapon}, Room: ${mistery.room}`,
   );
 }
 
-const mistery_envelope = pick_mistery(characters, weapons, rooms);
-reveal_mistery(mistery_envelope);
+const misteryEnvelope = pickMistery(characters, weapons, rooms);
+revealMistery(misteryEnvelope);
